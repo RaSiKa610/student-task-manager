@@ -171,6 +171,10 @@ li.completed {
   color: #991b1b;
 }
 
+  li {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+  }
 
 /* =========================
    RESPONSIVE DESIGN
@@ -203,10 +207,9 @@ li.completed {
   }
 
   li {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
-
 
   .task-title {
     width: 100%;
