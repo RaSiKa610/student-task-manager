@@ -26,10 +26,12 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 25px;
-  color: #333;
+  color: #111827; /* 🔥 stronger contrast */
 }
 
-/* Form */
+/* =========================
+   FORM
+   ========================= */
 form {
   display: grid;
   grid-template-columns: 1fr 120px 160px auto;
@@ -39,14 +41,18 @@ form {
 
 input,
 select {
-  padding: 8px 10px;
+  padding: 10px;
   font-size: 14px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #d1d5db;
+}
+
+input::placeholder {
+  color: #9ca3af;
 }
 
 button {
-  padding: 8px 12px;
+  padding: 10px 14px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -59,17 +65,19 @@ button:hover {
   background-color: #4338ca;
 }
 
-/* Filter buttons */
+/* =========================
+   FILTER BUTTONS
+   ========================= */
 .filters {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .filters button {
   background-color: #e5e7eb;
-  color: #333;
+  color: #111827;
 }
 
 .filters button.active {
@@ -77,46 +85,61 @@ button:hover {
   color: white;
 }
 
-/* Task list */
+/* =========================
+   TASK LIST
+   ========================= */
 ul {
   padding: 0;
   margin: 0;
 }
 
+/* 🔥 IMPORTANT FIX */
 li {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
-  margin-bottom: 8px;
-  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
   background-color: #f9fafb;
   border: 1px solid #e5e7eb;
+  color: #111827; /* ✅ FIX: text now visible */
 }
 
 li.completed {
-  opacity: 0.7;
+  background-color: #eef2ff;
+  opacity: 0.8;
 }
 
-/* Task text */
+/* =========================
+   TASK TITLE
+   ========================= */
 .task-title {
   flex: 1;
-  font-weight: 500;
+  font-weight: 600;
+  color: #111827; /* FIX: dark text */
+  word-break: break-word;
 }
+
 
 .task-title.completed {
   text-decoration: line-through;
   color: #6b7280;
 }
 
-/* Meta info */
+
+/* =========================
+   META INFO
+   ========================= */
 .meta {
   font-size: 12px;
-  color: #555;
+  color: #4b5563;
 }
 
-/* Delete button */
+/* =========================
+   DELETE BUTTON
+   ========================= */
 .delete-btn {
   background-color: #ef4444;
 }
@@ -125,10 +148,33 @@ li.completed {
   background-color: #dc2626;
 }
 
-/* =========================
-   Responsive Design
-   ========================= */
+.priority {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
 
+.priority.low {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.priority.medium {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.priority.high {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
 @media (max-width: 768px) {
   #root {
     padding: 15px;
@@ -138,7 +184,6 @@ li.completed {
     padding: 20px;
   }
 
-  /* Stack form inputs vertically */
   form {
     grid-template-columns: 1fr;
   }
@@ -149,7 +194,6 @@ li.completed {
     width: 100%;
   }
 
-  /* Filter buttons stack nicely */
   .filters {
     flex-wrap: wrap;
   }
@@ -158,11 +202,11 @@ li.completed {
     flex: 1;
   }
 
-  /* Task item layout */
   li {
-    flex-wrap: wrap;
-    align-items: flex-start;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
   }
+
 
   .task-title {
     width: 100%;
@@ -170,7 +214,22 @@ li.completed {
 
   .delete-btn {
     width: 100%;
-    margin-top: 6px;
+    margin-top: 8px;
   }
 }
 
+.task-meta {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}

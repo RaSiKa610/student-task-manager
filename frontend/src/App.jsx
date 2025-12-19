@@ -130,11 +130,14 @@ function App() {
               >
                 {task.title}
                 <div className="meta">
-                  [{task.priority}]
+                  <span className={`priority ${task.priority}`}>
+                    {task.priority}
+                  </span>
                   {task.dueDate && (
                     <> • Due: {new Date(task.dueDate).toLocaleDateString()}</>
                   )}
                 </div>
+
               </div>
 
               <button
