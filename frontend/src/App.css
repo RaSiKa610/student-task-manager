@@ -15,7 +15,9 @@ body {
   padding: 30px 20px;
 }
 
-/* Card container */
+/* =========================
+   CARD CONTAINER
+   ========================= */
 .app-container {
   background: #ffffff;
   border-radius: 12px;
@@ -26,7 +28,7 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 25px;
-  color: #111827; /* 🔥 stronger contrast */
+  color: #111827;
 }
 
 /* =========================
@@ -45,12 +47,28 @@ select {
   font-size: 14px;
   border-radius: 6px;
   border: 1px solid #d1d5db;
+  color: #111827;
+  background-color: #ffffff;
 }
 
 input::placeholder {
   color: #9ca3af;
 }
 
+/* 🔥 DATE PICKER FIX (VERY IMPORTANT) */
+input[type="date"] {
+  color: #111827;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 1;
+  filter: invert(0);
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
 button {
   padding: 10px 14px;
   border: none;
@@ -93,7 +111,6 @@ ul {
   margin: 0;
 }
 
-/* 🔥 IMPORTANT FIX */
 li {
   list-style: none;
   display: flex;
@@ -102,14 +119,14 @@ li {
   padding: 14px;
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: #f9fafb;
+  background-color: #ffffff;
   border: 1px solid #e5e7eb;
-  color: #111827; /* ✅ FIX: text now visible */
+  color: #111827;
 }
 
 li.completed {
   background-color: #eef2ff;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 /* =========================
@@ -118,16 +135,14 @@ li.completed {
 .task-title {
   flex: 1;
   font-weight: 600;
-  color: #111827; /* FIX: dark text */
+  color: #111827;
   word-break: break-word;
 }
-
 
 .task-title.completed {
   text-decoration: line-through;
   color: #6b7280;
 }
-
 
 /* =========================
    META INFO
@@ -135,19 +150,12 @@ li.completed {
 .meta {
   font-size: 12px;
   color: #4b5563;
+  margin-top: 4px;
 }
 
 /* =========================
-   DELETE BUTTON
+   PRIORITY BADGES
    ========================= */
-.delete-btn {
-  background-color: #ef4444;
-}
-
-.delete-btn:hover {
-  background-color: #dc2626;
-}
-
 .priority {
   padding: 2px 8px;
   border-radius: 6px;
@@ -171,10 +179,20 @@ li.completed {
   color: #991b1b;
 }
 
-  li {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
-  }
+/* =========================
+   DELETE BUTTON
+   ========================= */
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
 
 /* =========================
    RESPONSIVE DESIGN
@@ -219,20 +237,4 @@ li.completed {
     width: 100%;
     margin-top: 8px;
   }
-}
-
-.task-meta {
-  font-size: 13px;
-  color: #666;
-  margin-top: 4px;
-}
-
-.delete-btn {
-  background: #ef4444;
-  color: white;
-  border: none;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 6px;
-  cursor: pointer;
 }
