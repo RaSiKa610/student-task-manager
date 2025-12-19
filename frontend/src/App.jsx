@@ -76,6 +76,7 @@ function App() {
         <input
           type="date"
           value={dueDate}
+          placeholder="Due Date"
           onChange={(e) => setDueDate(e.target.value)}
           aria-label="Due date"
         />
