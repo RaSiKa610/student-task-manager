@@ -238,3 +238,28 @@ li.completed {
     margin-top: 8px;
   }
 }
+
+.overdue {
+  border-left: 4px solid #ef4444;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 320px;
+}
+.task-description {
+  font-size: 13px;
+  color: #4b5563;
+  margin-top: 4px;
+}
