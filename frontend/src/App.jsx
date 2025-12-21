@@ -9,15 +9,19 @@ import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+
+  // Add task states
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("low");
   const [dueDate, setDueDate] = useState("");
 
+  // UI states
   const [filter, setFilter] = useState("all");
   const [sortBy, setSortBy] = useState("none");
   const [search, setSearch] = useState("");
 
+  // Edit modal
   const [editingTask, setEditingTask] = useState(null);
 
   const loadTasks = async () => {
@@ -100,15 +104,33 @@ function App() {
     <div className="app-container">
       <h1>Student Task Manager</h1>
 
-      {/* ADD TASK FORM */}
-      <form onSubmit={handleAddTask}>
-        <input
-          type="text"
-          placeholder="Task title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
+      {/* ================= ADD TASK FORM ================= */}
+      <form className="add-form" onSubmit={handleAddTask}>
+        <div className="row">
+          <input
+            type="text"
+            placeholder="Task title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+
+          <select
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+
+          <input
+            type="date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+            aria-label="Due date"
+          />
+        </div>
 
         <textarea
           placeholder="Task description"
@@ -116,26 +138,13 @@ function App() {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <select
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-        >
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-
-        <input
-          type="date"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-        />
-
-        <button type="submit">Add Task</button>
+        <button type="submit" className="add-btn">
+          Add Task
+        </button>
       </form>
 
-      {/* SEARCH + SORT */}
-      <div className="filters">
+      {/* ================= SEARCH + SORT ================= */}
+      <div className="top-controls">
         <input
           type="text"
           placeholder="Search task..."
@@ -143,14 +152,14 @@ function App() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <select onChange={(e) => setSortBy(e.target.value)}>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="none">No Sorting</option>
           <option value="priority">Sort by Priority</option>
           <option value="dueDate">Sort by Due Date</option>
         </select>
       </div>
 
-      {/* FILTER BUTTONS */}
+      {/* ================= FILTER BUTTONS ================= */}
       <div className="filters">
         <button
           className={filter === "all" ? "active" : ""}
@@ -172,7 +181,7 @@ function App() {
         </button>
       </div>
 
-      {/* TASK LIST */}
+      {/* ================= TASK LIST ================= */}
       <ul>
         {sortedTasks.map((task) => {
           const isOverdue =
@@ -206,7 +215,6 @@ function App() {
                   <span className={`priority ${task.priority}`}>
                     {task.priority}
                   </span>
-
                   {task.dueDate && (
                     <> • Due: {new Date(task.dueDate).toLocaleDateString()}</>
                   )}
@@ -225,7 +233,7 @@ function App() {
         })}
       </ul>
 
-      {/* EDIT MODAL */}
+      {/* ================= EDIT MODAL ================= */}
       {editingTask && (
         <div className="modal">
           <div className="modal-content">
@@ -240,7 +248,7 @@ function App() {
             />
 
             <textarea
-              value={editingTask.description}
+              value={editingTask.description || ""}
               onChange={(e) =>
                 setEditingTask({
                   ...editingTask,
