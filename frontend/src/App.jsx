@@ -106,31 +106,13 @@ function App() {
 
       {/* ================= ADD TASK FORM ================= */}
       <form className="add-form" onSubmit={handleAddTask}>
-        <div className="row">
-          <input
-            type="text"
-            placeholder="Task title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-
-          <select
-            value={priority}
-            onChange={(e) => setPriority(e.target.value)}
-          >
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-
-          <input
-            type="date"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-            aria-label="Due date"
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Task title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
 
         <textarea
           placeholder="Task description"
@@ -138,10 +120,27 @@ function App() {
           onChange={(e) => setDescription(e.target.value)}
         />
 
+        <select
+          value={priority}
+          onChange={(e) => setPriority(e.target.value)}
+        >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <input
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+          aria-label="Due date"
+        />
+
         <button type="submit" className="add-btn">
           Add Task
         </button>
       </form>
+
 
       {/* ================= SEARCH + SORT ================= */}
       <div className="top-controls">

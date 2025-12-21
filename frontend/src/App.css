@@ -32,16 +32,24 @@ h1 {
 }
 
 /* =========================
-   FORM
+   ADD TASK FORM (VERTICAL)
    ========================= */
 form {
-  display: grid;
-  grid-template-columns: 1fr 120px 160px auto;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
+form input,
+form textarea,
+form select,
+form button {
+  width: 100%;
+}
+
 input,
+textarea,
 select {
   padding: 10px;
   font-size: 14px;
@@ -51,11 +59,16 @@ select {
   background-color: #ffffff;
 }
 
-input::placeholder {
+textarea {
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
   color: #9ca3af;
 }
 
-/* 🔥 DATE PICKER FIX (VERY IMPORTANT) */
+/* Date picker fix */
 input[type="date"] {
   color: #111827;
 }
@@ -63,20 +76,17 @@ input[type="date"] {
 input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   opacity: 1;
-  filter: invert(0);
 }
 
-/* =========================
-   BUTTONS
-   ========================= */
+/* Buttons */
 button {
-  padding: 10px 14px;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   background-color: #4f46e5;
   color: white;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 button:hover {
@@ -84,11 +94,20 @@ button:hover {
 }
 
 /* =========================
+   SEARCH + SORT
+   ========================= */
+.top-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* =========================
    FILTER BUTTONS
    ========================= */
 .filters {
   display: flex;
-  justify-content: center;
   gap: 10px;
   margin-bottom: 18px;
 }
@@ -96,6 +115,7 @@ button:hover {
 .filters button {
   background-color: #e5e7eb;
   color: #111827;
+  flex: 1;
 }
 
 .filters button.active {
@@ -104,7 +124,7 @@ button:hover {
 }
 
 /* =========================
-   TASK LIST
+   TASK LIST (VERTICAL CARDS)
    ========================= */
 ul {
   padding: 0;
@@ -114,10 +134,10 @@ ul {
 li {
   list-style: none;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
   padding: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   border-radius: 10px;
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
@@ -129,13 +149,15 @@ li.completed {
   opacity: 0.85;
 }
 
+.overdue {
+  border-left: 4px solid #ef4444;
+}
+
 /* =========================
-   TASK TITLE
+   TASK CONTENT
    ========================= */
 .task-title {
-  flex: 1;
   font-weight: 600;
-  color: #111827;
   word-break: break-word;
 }
 
@@ -144,24 +166,27 @@ li.completed {
   color: #6b7280;
 }
 
-/* =========================
-   META INFO
-   ========================= */
+.task-description {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Meta info */
 .meta {
   font-size: 12px;
   color: #4b5563;
-  margin-top: 4px;
 }
 
 /* =========================
    PRIORITY BADGES
    ========================= */
 .priority {
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 600;
   text-transform: capitalize;
+  display: inline-block;
 }
 
 .priority.low {
@@ -180,14 +205,15 @@ li.completed {
 }
 
 /* =========================
-   DELETE BUTTON
+   TASK BUTTONS
    ========================= */
+li button {
+  width: 100%;
+  margin-top: 6px;
+}
+
 .delete-btn {
   background-color: #ef4444;
-  color: white;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
 .delete-btn:hover {
@@ -195,54 +221,8 @@ li.completed {
 }
 
 /* =========================
-   RESPONSIVE DESIGN
+   MODAL
    ========================= */
-@media (max-width: 768px) {
-  #root {
-    padding: 15px;
-  }
-
-  .app-container {
-    padding: 20px;
-  }
-
-  form {
-    grid-template-columns: 1fr;
-  }
-
-  form input,
-  form select,
-  form button {
-    width: 100%;
-  }
-
-  .filters {
-    flex-wrap: wrap;
-  }
-
-  .filters button {
-    flex: 1;
-  }
-
-  li {
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-  .task-title {
-    width: 100%;
-  }
-
-  .delete-btn {
-    width: 100%;
-    margin-top: 8px;
-  }
-}
-
-.overdue {
-  border-left: 4px solid #ef4444;
-}
-
 .modal {
   position: fixed;
   inset: 0;
@@ -257,9 +237,20 @@ li.completed {
   padding: 20px;
   border-radius: 10px;
   width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.task-description {
-  font-size: 13px;
-  color: #4b5563;
-  margin-top: 4px;
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+  #root {
+    padding: 15px;
+  }
+
+  .app-container {
+    padding: 20px;
+  }
 }
