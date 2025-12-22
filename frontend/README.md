@@ -75,3 +75,18 @@ Backend: <YOUR_RENDER_URL>
 
 ## 👩‍💻 Author
 Rasika Shinde
+
+## 📸 Screenshots
+
+### Desktop View
+![Dashboard](screenshots/dashboard.jpeg)
+
+### Task
+![Add Task](screenshots/task-list.jpeg)
+
+### Edit Task
+![Edit Task](screenshots/edit-task.jpeg)
+
+### Mobile View
+![Mobile](screenshots/mobile.jpeg)
+
