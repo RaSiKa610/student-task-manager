@@ -1,16 +1,77 @@
-# React + Vite
+# Student Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack task management web application built to demonstrate end-to-end development skills including CRUD operations, API integration, state management, responsive UI, and deployment.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Create, edit, delete tasks
+- Mark tasks as completed or pending
+- Filter tasks (All / Pending / Completed)
+- Sort tasks by priority or due date
+- Search tasks by title
+- Highlight overdue tasks
+- Responsive UI (mobile & desktop)
+- Persistent storage using MongoDB Atlas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack
+**Frontend:** React (Vite), CSS  
+**Backend:** Node.js, Express  
+**Database:** MongoDB Atlas  
+**HTTP Client:** Axios  
+**Deployment:**  
+- Frontend → Vercel  
+- Backend → Render  
 
-## React Compiler
+## 📂 Project Structure
+# Student Task Manager
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+A full-stack task management web application built to demonstrate end-to-end development skills including CRUD operations, API integration, state management, responsive UI, and deployment.
 
-## Expanding the ESLint configuration
+## 🚀 Features
+- Create, edit, delete tasks
+- Mark tasks as completed or pending
+- Filter tasks (All / Pending / Completed)
+- Sort tasks by priority or due date
+- Search tasks by title
+- Highlight overdue tasks
+- Responsive UI (mobile & desktop)
+- Persistent storage using MongoDB Atlas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+**Frontend:** React (Vite), CSS  
+**Backend:** Node.js, Express  
+**Database:** MongoDB Atlas  
+**HTTP Client:** Axios  
+**Deployment:**  
+- Frontend → Vercel  
+- Backend → Render  
+
+## 📂 Project Structure
+frontend/
+├── src/
+│ ├── components/
+│ ├── services/
+│ └── App.jsx
+backend/
+├── src/
+│ ├── controllers/
+│ ├── models/
+│ └── routes/
+
+
+## 🌐 Live Demo
+Frontend: <YOUR_VERCEL_URL>  
+Backend: <YOUR_RENDER_URL>
+
+## 🧪 API Endpoints
+- POST /api/tasks
+- GET /api/tasks
+- PUT /api/tasks/:id
+- DELETE /api/tasks/:id
+
+## 🔮 Future Enhancements
+- User authentication (JWT)
+- Task notifications
+- Drag-and-drop ordering
+
+## 👩‍💻 Author
+Rasika Shinde
